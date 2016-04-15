@@ -1,15 +1,16 @@
 package sf.codingcomp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import sf.codingcomp.model.Entertainment;
 import sf.codingcomp.model.Game;
 import sf.codingcomp.model.Movie;
 import sf.codingcomp.model.Platform;
+import sf.codingcomp.reader.Reader;
 
 public interface SearchService {
     /*********************************** SET ONE ***********************************/
-
     /**
      * This method should find a list of movies using a partial search value
      * 
