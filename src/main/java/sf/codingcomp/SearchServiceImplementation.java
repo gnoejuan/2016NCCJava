@@ -63,26 +63,31 @@ public class SearchServiceImplementation implements SearchService {
 
 	@Override
 	public List<Movie> moviesByGenreAndRating(String Genre, String Rating) {
-		// TODO Auto-generated method stub
-		return null;
+		movies.removeIf(obj -> !obj.getGenre().toLowerCase().contains(Genre.toLowerCase()));
+		movies.removeIf(obj -> !obj.getRated().toLowerCase().equals(Rating.toLowerCase()));
+		return movies;
 	}
 
 	@Override
 	public List<Game> gamesByGenreAndRating(String Genre, String Rating) {
-		// TODO Auto-generated method stub
-		return null;
+		games.removeIf(obj -> !obj.getGenre().toLowerCase().contains(Genre.toLowerCase()));
+		games.removeIf(obj -> !obj.getRated().toLowerCase().contains(Rating.toLowerCase()));
+		return games;
 	}
 
 	@Override
 	public List<Entertainment> entertainmentByGenreAndRating(String Genre,
 			String Rating) {
-		// TODO Auto-generated method stub
-		return null;
+		enters.addAll(games);
+		enters.addAll(movies);
+		enters.removeIf(obj -> !obj.getGenre().toLowerCase().contains(Genre.toLowerCase()) && !obj.getRated().toLowerCase().equals(Rating.toLowerCase()));
+		return enters;
 	}
 
 	@Override
 	public <T extends Entertainment> void checkout(T title, Platform<T> platform) {
-		// TODO Auto-generated method stub
+		enters.addAll(games);
+		enters.addAll(movies);
 
 	}
 
